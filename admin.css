@@ -34,4 +34,41 @@
 	padding: 10px;
 }
 
+.repiter-fields {
+	border: 1px solid #ddd;
+}
+
+.repiter-fields li {
+	margin-bottom: 50px;
+	border-bottom: 1px solid #ddd;
+	padding: 20px;
+	position: relative;
+}
+
+.repiter-fields li .remove-field {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	background: rgba(0,0,0,.3);
+	display: inline-block;
+	border-radius: 50%;
+	color: #fff;
+	left: 0;
+	top: 50%;
+	margin-top: -10px;
+	position: absolute;
+	cursor: pointer;
+	transition: background .3s;
+}
+
+.repiter-fields li .remove-field:hover {
+	background: rgba(0,0,0,.8);
+}
+
+.repiter-fields li:last-child {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
 

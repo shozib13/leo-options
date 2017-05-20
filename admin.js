@@ -1,5 +1,6 @@
 ;(function($) {
-	$('.upload-btn').on('click', function(e) {
+	/* Upload Image */
+	$('body').on('click','.upload-btn', function(e) {
 		e.preventDefault();
 
 		var $button = $(this);
@@ -23,6 +24,8 @@
 		})
 	});
 
+
+	/* Remove Image */
 	$('body').on('click', '.leo-upload-view .close', function() {
 
 		$(this)
@@ -30,6 +33,14 @@
 			.siblings('input').val('');
 	});
 
+
+	/* Add Repiter Field */
+	$('.add-repiter-item').on('click', function() {
+		var index = $(this).siblings('.repiter-fields').find('li').length;
+		var template = '<li>'+$('.repiter-template').html().replace(/%d%/g, index)+'</li>';
+
+		$(this).siblings('.repiter-fields').append(template);
+	});
 
 })(jQuery);
 

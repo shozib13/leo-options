@@ -41,7 +41,9 @@ function hs_field_text($arr) {
 function hs_field_textarea($arr) {
 	extract($arr);
 
-	$index = 0;
+	if(isset($template) && $template == true) {
+		$index = '%d%';
+	}
 
 	if(isset($parent)) {
 		$value = isset(get_option($register_id)[$parent][$index][$id]) ? get_option($register_id)[$parent][$index][$id] : '';
@@ -70,10 +72,15 @@ function hs_field_textarea($arr) {
 function hs_field_image($arr) {
 
 	extract($arr);
-	$index = 0;
+
+	if(isset($template) && $template == true) {
+		$index = '%d%';
+	}
+	
 
 	if(isset($parent)) {
 		$value = isset(get_option($register_id)[$parent][$index][$id]) ? get_option($register_id)[$parent][$index][$id] : '';
+
 		$name = $register_id.'['.$parent.']['.$index.']'.'['.$id.']';
 
 	}else {
@@ -105,17 +112,46 @@ function hs_field_image($arr) {
  */
 
 function hs_field_repiter($arr, $object) {
+	extract($arr);	
+	$values = isset(get_option($register_id)[$id]) ? get_option($register_id)[$id] : array();
+?>
 
-	extract($arr);
+	<div class="repiter-field-warp">
+
+		<ul class="repiter-fields">
+			<?php foreach($values as $key => $value): ?>
+				<li>
+				<span class="remove-field">-</span>
+				<?php 
+				foreach($subfield as $field) {
+					$field['parent'] = $id;
+					$field['index'] = $key;
+					$field['register_id'] = $register_id;
+					$object->display_field($field);
+				}
+				?>
+				</li>
+			<?php endforeach; ?>
 
 
+		</ul><!-- end .repiter-fields -->
 
-	foreach($subfield as $field) {
-		$field['parent'] = $id;
-		$field['register_id'] = $register_id;
+		<script class="repiter-template" type="text/template">
+			<?php 
+				foreach($subfield as $field) {
+					$field['parent'] = $id;
+					$field['template'] = true;
+					$field['register_id'] = $register_id;
+					$object->display_field($field);
+				}
+			?>
+		</script>
 
-		$object->display_field($field);
-	}
+		<button class="button button-primary add-repiter-item" type="button">+Add Item</button>
+
+	</div>
+
+	<?php 
  }
 
 
