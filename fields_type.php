@@ -120,7 +120,7 @@ function hs_field_repiter($arr, $object) {
 
 		<ul class="repiter-fields">
 			<?php foreach($values as $key => $value): ?>
-				<li>
+				<li data-index="<?php echo $key; ?>">
 				<span class="remove-field">-</span>
 				<?php 
 				foreach($subfield as $field) {
@@ -137,6 +137,7 @@ function hs_field_repiter($arr, $object) {
 		</ul><!-- end .repiter-fields -->
 
 		<script class="repiter-template" type="text/template">
+			<span class="remove-field">-</span>
 			<?php 
 				foreach($subfield as $field) {
 					$field['parent'] = $id;

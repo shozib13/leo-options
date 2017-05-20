@@ -42,6 +42,12 @@
 		$(this).siblings('.repiter-fields').append(template);
 	});
 
+	/*Remove Repiter Field Options*/
+
+	$('body').on('click', '.repiter-fields .remove-field', function() {
+		$(this).closest('li').remove();
+	});
+
 })(jQuery);
 
 
