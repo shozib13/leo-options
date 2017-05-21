@@ -24,7 +24,7 @@ function hs_field_text($arr) {
 
 
 ?>
-	<input type="text" id="<?php echo $id; ?>" class="regular-text" name="<?php echo $name; ?>" value="<?php echo $value; ?>" >
+	<input type="text" id="<?php echo $id; ?>" class="leo-field regular-text" name="<?php echo $name; ?>" value="<?php echo $value; ?>" >
 <?php }
 
 
@@ -55,7 +55,7 @@ function hs_field_textarea($arr) {
 	}
 
 ?>
-	<textarea type="text" rows="7" class="regular-text" id="<?php echo $id; ?>" name="<?php echo $name; ?>"><?php echo $value; ?></textarea>
+	<textarea type="text" rows="7" class="leo-field regular-text" id="<?php echo $id; ?>" name="<?php echo $name; ?>"><?php echo $value; ?></textarea>
 
 <?php }
 
@@ -88,7 +88,7 @@ function hs_field_image($arr) {
 		$name = $register_id.'['.$id.']';
 	} ?>
 
-	<input type="text" rows="7" class="regular-text" id="<?php echo $id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
+	<input type="text" rows="7" class="leo-field regular-text" id="<?php echo $id; ?>" name="<?php echo $name; ?>" value="<?php echo $value; ?>">
 
 	<button class="button button-primary upload-btn">Upload</button>
 
